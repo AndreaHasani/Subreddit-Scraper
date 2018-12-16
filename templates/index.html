@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block head %}
+<meta name="description" content="Job tracker Bot" />
+<meta name="author" content="Andrea Hasani" />
+{{ super() }}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+<script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+{% endblock %}
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+{% block content %}
+<!-- <nav class="mobile-menu"> -->
+<!-- <label for="show-menu" class="show-menu"><span>Menu</span><div class="lines"></div></label> -->
+<!-- <input type="checkbox" id="show-menu"> -->
+<!-- <a href="#" id="title">Flask Base Template</a> -->
+<!-- <ul id="menu"> -->
+<!--     <li><a href="#home">Home</a></li> -->
+<!--     <li>			<a href="#">About</a>		</li> -->
+<!--     <li>			<a href="#">Portfolio</a>		</li> -->
+<!--     <li><a href="#news">News</a></li> -->
+<!--     <li><a href="#">Contact</a></li> -->
+<!-- </ul> -->
+<!-- </nav> -->
+
+<div class="main-container">
+
+<div class="sidepanel">
+  <span>Settings</span>
+  <div class="line"></div>
+</div>
+    <div class="main wrapper">
+	<div class="control">
+	    <!-- <div class="subreddit-adding"> -->
+		<!-- <div class="input-group input-group-sm mb-3"> -->
+		    <!-- <input type="input" name="subreddit" class="form-control" placeholder="/r"> -->
+		    <!-- <div class="input-group-prepend"> -->
+			<!-- <button class="adding btn btn-primary mb-2" disabled>ADD</button> -->
+		    <!-- </div> -->
+		<!-- </div> -->
+	    <!-- </div> -->
+	</div>
+	<div class="data table-wrapper-scroll-y container" >
+	    <div class="subreddit-control">
+		<label class="form-check form-check-inline">
+		    <input type="checkbox" name="chk[]" value="forhire" checked>forhire
+		</label>
+		<label class="form-check form-check-inline">
+		    <input type="checkbox" name="chk[]" value="slavelabor">slavelabor
+		</label>
+		<label class="form-check form-check-inline">
+		    <input type="checkbox" name="chk[]" value="web_design" checked>web_design
+		</label>
+	    </div>
+	    <div class="table-top row">
+
+		    <!-- Disabled, settings will be in left pane -->
+		    <div class="input-group mb-3 col-3 left">
+			<input type="input" id="addInput" class="form-control" placeholder="add.." onkeyup="tableSearch()">
+			<div class="input-group-append">
+			    <button class="btn btn-primary" id="add" disabled>Add</button>
+			</div>
+		    </div>
+		<div class="server-connect col-6">
+		    <button class="btn btn-primary d-inline" id="settings">Settings</button>
+		    <button class="btn btn-primary d-inline" id="connect">Connect</button>
+		    <button class="btn btn-primary d-inline" id="disconnect" disabled>Disconnect</button>
+		</div>
+
+		<!-- Disabled in favor of datable -->
+		<div class="right col-3">
+		<input type="text" id="searchInput" class="form-control d-inline" placeholder="search.." onkeyup="tableSearch()">
+		<input type="number" id="limitInput" class="form-control d-inline" value="20">
+		</div>
+	    </div>
+	    <table class="table  table-hover" id="data-output">
+	    <thead class="thead-dark">
+		<tr>
+		    <th>Date</th>
+		    <th>Title</th>
+		</tr>
+	    </thead>
+	    <tbody>
+	    </tbody>
+	</table>
+	</div>
+
+    </div> <!-- #main -->
+
+
+</div>
+
+</div> <!-- #main-container -->
+
+
+<!-- The Modal -->
+<div id="settingsModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content container-fluid">
+    <span class="close">&times;</span>
+    <div class="content row d-flex">
+    </div>
+  </div>
+
+</div>
+
+
+{% endblock %}

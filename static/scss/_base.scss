@@ -1,0 +1,226 @@
+$break-xs: 300px;
+$break-sm: 600px;
+$break-md: 800px;
+$break-lg: 1000px;
+$break-xl: 1200px;
+$main-color: #e41b1b;
+$main-color-darker: #cd1818;
+$main-color-lighter: #e73232;
+$topbar-height: 3em;
+$footbar-height: 3.5em;
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+  height: 100%;
+}
+
+::-moz-selection,
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ===== Initializr Styles ==================================================
+Author: Andrea Hasani
+========================================================================== */
+
+body {
+  font: 16px/26px Helvetica, Helvetica Neue, Arial;
+  min-height: 100%;
+}
+
+/* ===================
+=================== */
+
+.header-container {
+  border-bottom: 20px solid #e44d26;
+  height: 100px;
+
+  .title,
+  nav {
+    height: 100px;
+  }
+
+  .title {
+    width: 30%;
+    float: left;
+    padding-left: 30px;
+  }
+  nav {
+    position: inherit;
+    width: 70%;
+    float: right;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+
+    ul {
+      list-style: none;
+      display: inline;
+      float: right;
+
+      li {
+        margin: 0;
+        width: 150px;
+        float: left;
+
+        a {
+          color: white;
+          padding: 30px 0;
+        }
+      }
+    }
+  }
+}
+
+.title {
+  color: white;
+}
+
+.main-container {
+  .data {
+    padding-top: 20px;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    width: 1000px;
+
+    .subreddit-control {
+      padding: 10px 0;
+      text-align: center;
+    }
+    .subreddit-adding {
+      width: 40%;
+      margin: 0 auto;
+    }
+
+    .table-top {
+      text-align: right;
+      .server-connect {
+        display: inline;
+        padding-bottom: 10px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      #limitInput {
+        width: 30%;
+      }
+      #searchInput {
+        width: 67%;
+      }
+    }
+
+    .table {
+      tbody td:first-child {
+        width: 22%;
+      }
+    }
+  }
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 40px 20px;
+    border: 1px solid #888;
+    width: 800px;
+    position: relative;
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    position: absolute;
+    top: 5%;
+    right: 1%;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+.modal {
+  .input-group {
+    .input-group-prepend {
+      .input-group-text {
+        cursor: default;
+      }
+    }
+
+    .input-group-append {
+      .btn {
+        background: #3c66b3;
+        color: white;
+      }
+    }
+  }
+
+  .content {
+    .keyword-control {
+      width: 95%;
+      margin: 0 auto;
+
+      &:nth-child(n + 2) {
+        padding-top: 15px;
+      }
+    }
+  }
+}
