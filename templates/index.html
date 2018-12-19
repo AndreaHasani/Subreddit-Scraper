@@ -29,42 +29,89 @@
 
 <div class="main-container">
 
-<div class="sidepanel">
-  <span>Settings</span>
-  <div class="line"></div>
-</div>
+    <div class="sidepanel">
+	<span>Settings</span>
+	<div class="line"></div>
+	<div class='container-fluid pt-2 pl-4 pr-4'>
+	    <span>SubReddit</span>
+	    <div class='input-group dropdown-select redditSelector'>
+		<select class='custom-select'>
+		</select>
+		<div class='input-group-append'>
+		    <button class='btn' type='button'>Remove</button>
+		</div>
+	    </div>
+	    <div class="titleKeyword keyword">
+		<span class="pt-5">Title Keyword</span>
+		<div class='input-group'>
+		    <div class='input-group-prepend'>
+			<button class='btn' type='button' disabled>List</button>
+		    </div>
+		    <input type="input" name="titleKeyword" class="form-control">
+		    <div class='input-group-append'>
+			<button class='btn' type='button'>Add</button>
+		    </div>
+		    <div class="keywords-div container-fluid">
+		    </div>
+		</div>
+	    </div>
+
+
+	    <div class="includeKeyword keyword">
+		<span>Include Keyword</span>
+		<div class='input-group'>
+		    <div class='input-group-prepend'>
+			<button class='btn' type='button' disabled>List</button>
+		    </div>
+		    <input type="input" name="includeKeyword" class="form-control">
+		    <div class='input-group-append'>
+			<button class='btn' type='button'>Add</button>
+		    </div>
+		    <div class="keywords-div container-fluid">
+		    </div>
+		</div>
+	    </div>
+
+
+	    <div class="excludeKeyword keyword">
+		<span>Exclude Keyword</span>
+		<div class='input-group'>
+		    <div class='input-group-prepend'>
+			<button class='btn' type='button' disabled>List</button>
+		    </div>
+		    <input type="input" name="excludeKeyword" class="form-control">
+		    <div class='input-group-append'>
+			<button class='btn' type='button'>Add</button>
+		    </div>
+		    <div class="keywords-div container-fluid">
+		    </div>
+		</div>
+	    </div>
+	</div>
+    </div>
     <div class="main wrapper">
 	<div class="control">
 	    <!-- <div class="subreddit-adding"> -->
-		<!-- <div class="input-group input-group-sm mb-3"> -->
-		    <!-- <input type="input" name="subreddit" class="form-control" placeholder="/r"> -->
-		    <!-- <div class="input-group-prepend"> -->
-			<!-- <button class="adding btn btn-primary mb-2" disabled>ADD</button> -->
-		    <!-- </div> -->
-		<!-- </div> -->
+	    <!-- <div class="input-group input-group-sm mb-3"> -->
+	    <!-- <input type="input" name="subreddit" class="form-control" placeholder="/r"> -->
+	    <!-- <div class="input-group-prepend"> -->
+	    <!-- <button class="adding btn btn-primary mb-2" disabled>ADD</button> -->
+	    <!-- </div> -->
+	    <!-- </div> -->
 	    <!-- </div> -->
 	</div>
 	<div class="data table-wrapper-scroll-y container" >
 	    <div class="subreddit-control">
-		<label class="form-check form-check-inline">
-		    <input type="checkbox" name="chk[]" value="forhire" checked>forhire
-		</label>
-		<label class="form-check form-check-inline">
-		    <input type="checkbox" name="chk[]" value="slavelabor">slavelabor
-		</label>
-		<label class="form-check form-check-inline">
-		    <input type="checkbox" name="chk[]" value="web_design" checked>web_design
-		</label>
 	    </div>
 	    <div class="table-top row">
 
-		    <!-- Disabled, settings will be in left pane -->
-		    <div class="input-group mb-3 col-3 left">
-			<input type="input" id="addInput" class="form-control" placeholder="add.." onkeyup="tableSearch()">
-			<div class="input-group-append">
-			    <button class="btn btn-primary" id="add" disabled>Add</button>
-			</div>
+		<!-- Disabled, settings will be in left pane -->
+		<div class="input-group mb-3 col-3 left">
+		    <input type="input" id="addInput" class="form-control" placeholder="add.." onkeyup="addEnable(this.value)">
+		    <div class="input-group-append">
+			<button class="btn btn-primary" id="add" disabled>Add</button>
 		    </div>
+		</div>
 		<div class="server-connect col-6">
 		    <button class="btn btn-primary d-inline" id="settings">Settings</button>
 		    <button class="btn btn-primary d-inline" id="connect">Connect</button>
@@ -73,20 +120,20 @@
 
 		<!-- Disabled in favor of datable -->
 		<div class="right col-3">
-		<input type="text" id="searchInput" class="form-control d-inline" placeholder="search.." onkeyup="tableSearch()">
-		<input type="number" id="limitInput" class="form-control d-inline" value="20">
+		    <input type="text" id="searchInput" class="form-control d-inline" placeholder="search.." onkeyup="tableSearch()">
+		    <input type="number" id="limitInput" class="form-control d-inline" value="20">
 		</div>
 	    </div>
 	    <table class="table  table-hover" id="data-output">
-	    <thead class="thead-dark">
-		<tr>
-		    <th>Date</th>
-		    <th>Title</th>
-		</tr>
-	    </thead>
-	    <tbody>
-	    </tbody>
-	</table>
+		<thead class="thead-dark">
+		    <tr>
+			<th>Date</th>
+			<th>Title</th>
+		    </tr>
+		</thead>
+		<tbody>
+		</tbody>
+	    </table>
 	</div>
 
     </div> <!-- #main -->
@@ -100,12 +147,12 @@
 <!-- The Modal -->
 <div id="settingsModal" class="modal">
 
-  <!-- Modal content -->
-  <div class="modal-content container-fluid">
-    <span class="close">&times;</span>
-    <div class="content row d-flex">
+    <!-- Modal content -->
+    <div class="modal-content container-fluid">
+	<span class="close">&times;</span>
+	<div class="content row d-flex">
+	</div>
     </div>
-  </div>
 
 </div>
 
