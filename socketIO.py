@@ -64,22 +64,6 @@ def background_thread(_id, data):
         subreddits[subreddit] = {**subreddits[subreddit],
                                  **subreddits_input[subreddit]}
 
-    # subreddits_data = {
-    #     "forhire": {
-    #         "titleKeyword": "hiring",
-    #         "includeKeyword": ["website", "dev", "developer", "wordpress",
-    #                            "client", "php", "css", "html", "python",
-    #                            "programmer", "development", "docker", "linux",
-    #                            "javascript"],
-    #         "excludeKeyword": []
-    #     },
-    #     # "slavelabour": {
-    #     #     "title_keyword": "task",
-    #     #     "keywordInclude": ["website"],
-    #     #     "keywordExclude": ["$"]
-    #     # }
-    # }
-
     print(subreddits)
     while running_process[_id] is True:
         for subreddit in subreddits:
@@ -88,6 +72,8 @@ def background_thread(_id, data):
             includeKeyword = subreddit['includeKeyword']
             titleKeyword = subreddit['titleKeyword']
             submission = next(subreddit['object_running'])
+            if not titleKeyword:
+                titleKeyword = [None]
             if submission is None:
                 break
             else:

@@ -185,15 +185,17 @@ function onclickBtn() {
 
   // subreddit-select -> btn-remove -> click
   $(".sidepanel .redditSelector .btn").click(function() {
+    var local_subredditSelect = $(".redditSelector select");
+    var local_selected_subreddit = local_subredditSelect.find("option:selected");
     $(
       ".main .subreddit-control input[value='" +
-        selected_subreddit.text() +
+        local_selected_subreddit.text() +
         "']"
     )
       .parent()
       .remove();
-    selected_subreddit.remove();
-    delete subreddit_items[selected_subreddit.text()];
+    local_selected_subreddit.remove();
+    delete subreddit_items[local_selected_subreddit.text()];
   });
 
   // keyword-sector -> right-btn(Add, remove) -> click
